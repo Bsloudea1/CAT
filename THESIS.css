@@ -1,0 +1,534 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* LOGIN/REGISTER FORM CSS */
+
+.form-container{
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+   padding-bottom: 60px;
+   background: #eee;
+   background-image: url(bg/C.A.T\ bg4.jpg);
+   background-repeat: no-repeat;
+   background-size:cover;
+   background-position: center;
+}
+.form-container form{
+   padding: 40px; 
+   border-radius: 10px; 
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+   background: rgba(255, 255, 255, 0.9); 
+   text-align: center;
+   width: 600px; 
+   max-width: 100%;
+}
+.form-container form h3{
+   font-size: 32px; 
+   text-transform: uppercase;
+   margin-bottom: 20px; 
+   color: crimson;
+   font-family: 'Arial', sans-serif; 
+}
+.form-container form input{
+   width: 100%;
+   padding: 15px 20px;
+   font-size: 18px; 
+   margin: 10px 0; 
+   background: #f9f9f9; 
+   border-radius: 5px;
+   border: 1px solid #ccc; 
+   transition: border-color 0.3s; 
+}
+.form-container form input:focus {
+   border-color: #f33f3f; 
+   outline: none; 
+}
+.form-container form .form-btn{
+   background: #f33f3f;;
+   color: white;
+   text-transform: capitalize;
+   font-size: 20px; 
+   cursor: pointer;
+   border: none; 
+   border-radius: 5px; 
+   padding: 15px; 
+   transition: background 0.3s, color 0.3s;
+}
+.form-container form .form-btn:hover{
+   background: crimson;
+   color:#fff;
+}
+.form-container form p{
+   margin-top: 15px;
+   font-size: 18px;
+   color: #333;
+}
+.form-container form p a{
+   color:crimson;
+   text-decoration: none;
+}
+.form-container form .error-msg{
+    margin: 10px 0;
+    display: block;
+    background: crimson;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px;
+    transition: opacity 0.3s;
+}
+
+/* SIDEBAR CSS */
+
+.sidebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: rgba(95, 125, 66, 1);
+    padding: .4rem .8rem;
+    transition: width 0.3s ease;
+    z-index: 100; 
+}
+.sidebar.active{
+    width: 250px;
+}
+.sidebar #btn{
+    position: absolute;
+    color: #fff;
+    top: 1rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+.sidebar.active #btn{
+    left: 90%;
+}
+.sidebar .profile {
+    display: flex;
+    align-items: center;  
+    justify-content: center; 
+    margin: 1rem 0;
+    width: 100%;  
+    transition: all 0.3s ease;
+    padding-top: 5px;
+}
+.sidebar .profile img {
+    width: 60px;
+    height: 60px; 
+    max-width: 60px;
+    max-height: 75px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    transition: all 0.3s ease;
+}
+.sidebar .top .logo{
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+.sidebar.active .top .logo{
+    opacity: 1;
+}
+.top .logo i{
+    font-size: 2rem;
+    margin-right: 5px;
+}
+.sidebar .profile p {
+    color: #fff;
+    opacity: 0;  
+    margin-left: 1rem;
+    display: none;
+    transition: opacity 0.3s ease; 
+}
+.sidebar.active .profile p {
+    opacity: 1;
+    display: block; 
+}
+.bold{
+    font-weight: 600;
+}
+.sidebar p{
+    opacity: 0;
+}
+.sidebar.active p{
+    opacity: 1;
+}
+.sidebar ul li{
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+    top: 10px;
+}
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+.sidebar ul li a:hover{
+    background-color: #fff;
+    color: #12171e;
+}
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+.sidebar .nav-item{
+    opacity: 0;
+}
+.sidebar.active .nav-item{
+    opacity: 1;
+}
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+.sidebar ul li:hover .tooltip{
+    opacity: 1;
+}
+.sidebar.active ul li .tooltip{
+    display: none;
+}
+
+/* Main Content of User*/
+
+.user-main-content{
+    position: relative;
+    background-image: url(bg/C.A.T\ bg3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: margin-left 0.3s ease;
+}
+.user-main-content.shifted {
+    margin-left: 250px;
+}
+.user-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.user-container {
+    align-items: stretch;
+}
+.slideshow {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.25); 
+}
+.slideshow img {
+    width: 100%;
+    max-height: 100%;
+    display: none;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 10px;
+}
+.slideshow img.active {
+    display: block;
+    opacity: 1;
+}
+.slideshow-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.control-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+.control-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.user-content {
+    max-width: 400px;
+    width: 100%;
+    text-align: justify;
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.255);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+}
+.user-content p{
+    padding: 10px;
+}
+.dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5); 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dot.active {
+    background-color: white;
+}
+
+/* SETTINGS CSS */
+
+.main-settings-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 100px auto;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.top-navbar {
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+}
+.top-navbar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.top-navbar ul li {
+    margin: 0 10px;
+}
+.top-navbar ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.top-navbar ul li a:hover {
+    background-color: gray;
+}
+.profile-photo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.profile-photo img {
+    width: 230px;
+    height: 185px;
+    max-width: 230px;
+    max-height: 185px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+.profile-photo input[type="file"] {
+    font-size: 14px;
+    margin-top: 10px; 
+    width: 250px; 
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+.profile-photo button:hover{
+    background-color: #0056b3;
+}
+.form-group {
+    float: left;
+    margin-bottom: 15px;
+    padding: 8px;
+}
+.form-group label[for="profile_picture"]{
+    font-size: 25px;
+    margin-left: 35px;
+}
+.form-group, .form-group2 label{
+    color: #555;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.form-group input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+.form-group2{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+.form-group2 input{
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.settings-save:hover{
+    background-color: #0056b3;
+}
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 9px;
+    float: right;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* PASSWORD SETTINGS */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* RESPONSIVE CSS FOR EVERYTHING */
+
+@media (max-width: 768px) {
+    .user-container {
+        flex-direction: column;
+    }
+    .user-main-content {
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+        padding: 1rem;
+        margin-left: 80px;
+    }
+    .sidebar{
+        height: 100vh;
+    }
+    .slideshow {
+        width: 100%; 
+        height: 250px; 
+    }
+    .content {
+        max-width: 100%;
+    }
+    .main-settings-container {
+        position: absolute;
+        top: 38%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #fff; 
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+        overflow-y: auto; 
+        border: none;
+    } 
+    .top-navbar ul{
+        gap: 10px;
+        width: 100%;
+    }
+    button[type="submit"] {
+        float: none;
+        width: 100%;
+    }
+    table {
+        width: 100%;
+    }
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tab {
+        margin: 5px 0;
+    }
+    #searchBar {
+        width: 100%;
+        margin-left: 0;
+    }
+}

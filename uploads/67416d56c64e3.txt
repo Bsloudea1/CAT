@@ -1,0 +1,23 @@
+CREATE TABLE `user_profile` (
+    `user_id` INT NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `user_profile` VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (`user_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `user_form`(`id`) ON DELETE CASCADE
+);
+
+php.ini
+create folder inside htdocs and inside your current prjct folder then create new folder name uploads (this is where all profile img store)
+
+rightclick the upload foler and allow write permission on user
+
+phpmailer
+
+(GITHUB
+
+composer
+
+oncomment extension=zip in php.ini
+
+install composer in the root path projct
